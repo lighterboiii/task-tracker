@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styles from './TrackerComponent.module.scss';
 import Popup from '../Modal/Modal/Modal';
+import AddTask from '../AddTaskPopup/AddTaskPopup';
 
 interface IProps {
   title: string;
@@ -32,7 +33,7 @@ const TrackerComponent: FC<IProps> = ({ title }) => {
       </button>
       {isModalOpen && (
         <Popup onClick={handleCloseModal}>
-          <p>Привет, придурок хуев</p>
+          <AddTask />
         </Popup>
       )}
     </div>

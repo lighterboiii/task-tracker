@@ -1,6 +1,7 @@
 import { FC, useEffect } from 'react';
 import ReactDom from 'react-dom';
 import ModalOverlay from '../ModalOverlay/ModalOverlay';
+import styles from './Modal.module.scss';
 
 interface IModalPopup {
   onClick: () => void;
@@ -22,14 +23,14 @@ const Modal: FC<IModalPopup> = ({ onClick, children }) => {
   }, [onClick]);
 
   return ReactDom.createPortal(
-    <div>
-      <ModalOverlay onClick={onClick} />
-      <div>
+    <div className={styles.modal}>
+      <div className={styles.modal__content}>
         {children}
         <button onClick={onClick} type="button">
           X
         </button>
       </div>
+      <ModalOverlay onClick={onClick} />
     </div>,
     modalContainer
   );
