@@ -8,7 +8,6 @@ import styles from './board.module.scss';
 const BoardPage: FC = () => {
   return (
     <div className={styles.board}>
-      <h2>It's empty here yet</h2>
       <Routes>
         <Route path="/todo" element={<TrackerComponent title="To Do" />} />
         <Route

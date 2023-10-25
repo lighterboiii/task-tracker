@@ -1,21 +1,41 @@
 /* eslint-disable import/no-self-import */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { FC } from 'react';
+import { FC, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styles from './tracker-component.module.scss';
+import { addTask, moveTask } from '../../services/slices/boardSlice';
+import Popup from '../Popup/Popup/Popup';
 
 interface IProps {
   title: string;
-  element?: JSX.Element;
 }
 
-const TrackerComponent: FC<IProps> = ({ title, element }) => {
+const TrackerComponent: FC<IProps> = ({ title }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleCloseModal = () => {
+    navigate(-1);
+  };
+
   return (
     <div className={styles.tracker}>
       <h2>{title}</h2>
-      <div>{element}</div>
-      <button type="button" className={styles.tracker__button}>
+
+      <button
+        type="button"
+        className={styles.tracker__button}
+        onClick={() => setModalOpen(true)}
+      >
         + Add item
       </button>
+      {isModalOpen && (
+        <Popup onClick={handleCloseModal}>
+          <p>Привет</p>
+        </Popup>
+      )}
     </div>
   );
 };
