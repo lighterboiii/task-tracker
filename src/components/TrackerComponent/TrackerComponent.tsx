@@ -3,9 +3,8 @@
 import { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import styles from './tracker-component.module.scss';
-import { addTask, moveTask } from '../../services/slices/boardSlice';
-import Popup from '../Popup/Popup/Popup';
+import styles from './TrackerComponent.module.scss';
+import Popup from '../Modal/Modal/Modal';
 
 interface IProps {
   title: string;
@@ -33,7 +32,7 @@ const TrackerComponent: FC<IProps> = ({ title }) => {
       </button>
       {isModalOpen && (
         <Popup onClick={handleCloseModal}>
-          <p>Привет</p>
+          <p>Привет, придурок хуев</p>
         </Popup>
       )}
     </div>

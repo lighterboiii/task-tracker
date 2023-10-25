@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import ReactDom from 'react-dom';
-import PopupOverlay from '../PopupOverlay/PopupOverlay';
+import ModalOverlay from '../ModalOverlay/ModalOverlay';
 
 interface IModalPopup {
   onClick: () => void;
@@ -8,7 +8,7 @@ interface IModalPopup {
 }
 const modalContainer = document.querySelector('#modals') as HTMLElement;
 
-const Popup: FC<IModalPopup> = ({ onClick, children }) => {
+const Modal: FC<IModalPopup> = ({ onClick, children }) => {
   useEffect(() => {
     function closeEscModal(evt: KeyboardEvent) {
       if (evt.key === 'Escape') onClick();
@@ -23,7 +23,7 @@ const Popup: FC<IModalPopup> = ({ onClick, children }) => {
 
   return ReactDom.createPortal(
     <div>
-      <PopupOverlay onClick={onClick} />
+      <ModalOverlay onClick={onClick} />
       <div>
         {children}
         <button onClick={onClick} type="button">
@@ -35,4 +35,4 @@ const Popup: FC<IModalPopup> = ({ onClick, children }) => {
   );
 };
 
-export default Popup;
+export default Modal;

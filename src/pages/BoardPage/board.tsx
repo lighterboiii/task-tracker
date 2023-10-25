@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import TrackerComponent from '../../components/TrackerComponent/tracker-component';
+import TrackerComponent from '../../components/TrackerComponent/TrackerComponent';
 import Navigation from '../../components/Navigation/Navigation';
 import styles from './board.module.scss';
 

@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import styles from './PopupOverlay.module.scss';
+import styles from './ModalOverlay.module.scss';
 
 interface IOverlay {
   onClick: () => void;
 }
 
-const PopupOverlay: FC<IOverlay> = ({ onClick }) => {
+const ModalOverlay: FC<IOverlay> = ({ onClick }) => {
   return <div className={styles.overlay} onClick={onClick} />;
 };
 
-export default PopupOverlay;
+export default ModalOverlay;
