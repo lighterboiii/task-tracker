@@ -1,9 +1,9 @@
 .appContainer {
   margin: 0 auto;
   min-height: 100vh;
+  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   background-color: inherit;
 }

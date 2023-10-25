@@ -10,8 +10,12 @@ interface IProps {
 
 const TrackerComponent: FC<IProps> = ({ title, element }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.tracker}>
       <h2>{title}</h2>
+      <div>{element}</div>
+      <button type="button" className={styles.tracker__button}>
+        + Add item
+      </button>
     </div>
   );
 };

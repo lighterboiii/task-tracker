@@ -18,16 +18,16 @@ function Navigation() {
     //   onSwipedRight={() => handleSwipe(1)}
     // >
     <nav className={styles.nav}>
-      <Link className={styles.nav__element} to="/todo">
+      <Link className={styles.nav__element} to="/boards/todo">
         Todo
       </Link>
-      <Link className={styles.nav__element} to="/progress">
+      <Link className={styles.nav__element} to="/boards/progress">
         In Progress
       </Link>
-      <Link className={styles.nav__element} to="/review">
+      <Link className={styles.nav__element} to="/boards/review">
         Review
       </Link>
-      <Link className={styles.nav__element} to="/done">
+      <Link className={styles.nav__element} to="/boards/done">
         Done
       </Link>
     </nav>
