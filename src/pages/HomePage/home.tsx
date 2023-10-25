@@ -5,11 +5,12 @@ import styles from './home.module.scss';
 const HomePage: FC = () => {
   return (
     <nav className={styles.home}>
-      <Link className={styles.home__element} to="/boards">
-        Your boards
-      </Link>
+      <div className={styles.home__text}>create or join a board</div>
       <Link className={styles.home__element} to="/create">
         Create board
+      </Link>
+      <Link className={styles.home__element} to="/boards">
+        Your boards
       </Link>
     </nav>
   );

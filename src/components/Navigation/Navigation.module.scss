@@ -6,10 +6,20 @@
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
+  border-top: .5px #8b949e solid;
 
   &__element {
     padding: 10px;
     text-decoration: none;
     max-height: 40px;
+    color: #8b949e;
+
+    &:focus {
+      color: #FFF;
+    }
+
+    &:hover {
+      color: #FFF;
+    }
   }
 }
