@@ -13,4 +13,13 @@
     position: absolute;
     z-index: 3;
   }
+
+  &__closeButton {
+    position: absolute;
+    top: 0;
+    right: -20px;
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
 }

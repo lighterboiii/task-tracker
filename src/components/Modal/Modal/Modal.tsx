@@ -2,6 +2,7 @@ import { FC, useEffect } from 'react';
 import ReactDom from 'react-dom';
 import ModalOverlay from '../ModalOverlay/ModalOverlay';
 import styles from './Modal.module.scss';
+import CloseIcon from '../../../ui/icons/CloseIcon/CloseIcon';
 
 interface IModalPopup {
   onClick: () => void;
@@ -26,8 +27,12 @@ const Modal: FC<IModalPopup> = ({ onClick, children }) => {
     <div className={styles.modal}>
       <div className={styles.modal__content}>
         {children}
-        <button onClick={onClick} type="button">
-          X
+        <button
+          onClick={onClick}
+          type="button"
+          className={styles.modal__closeButton}
+        >
+          <CloseIcon />
         </button>
       </div>
       <ModalOverlay onClick={onClick} />
