@@ -1,24 +1,34 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface ITaskState {
+interface ITask {
   title: string;
   description: string;
+  board?: string;
+}
+
+interface ITaskState {
+  tasks: ITask[];
 }
 
 const initialState: ITaskState = {
-  title: '',
-  description: '',
+  tasks: [],
 };
 
 const taskSlice = createSlice({
   name: 'task',
   initialState,
   reducers: {
-    newTask: (state, action: PayloadAction<ITaskState>) => {
-      const { title, description } = action.payload;
-      state.title = title;
-      state.description = description;
+    newTask: (state, action: PayloadAction<ITask>) => {
+      const newTask: ITask = {
+        title: action.payload.title,
+        description: action.payload.description,
+        board: 'todo',
+      };
+      state.tasks.push(action.payload);
+    },
+    deleteTask: (state, action: PayloadAction<number>) => {
+      state.tasks.splice(action.payload, 1);
     },
   },
 });

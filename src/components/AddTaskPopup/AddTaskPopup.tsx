@@ -13,12 +13,10 @@ interface IPopup {
 
 const AddTaskPopup: FC<IPopup> = ({ toggleModal }) => {
   const dispatch = useDispatch();
-  const { title, description } = useSelector(
-    (store: RootState) => store.taskSlice
-  );
+  const tasks = useSelector((store: RootState) => store.taskSlice.tasks);
   const [formData, setFormData] = useState({
-    title,
-    description,
+    title: '',
+    description: '',
   });
 
   const handleChange = (
@@ -27,18 +25,18 @@ const AddTaskPopup: FC<IPopup> = ({ toggleModal }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleConfirm = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     dispatch(newTask(formData));
-    toggleModal();
     setFormData({ title: '', description: '' });
+    toggleModal();
   };
 
   console.log(formData);
   return (
     <div className={styles.popup}>
       <h2 className={styles.popup__heading}>Add Task</h2>
-      <form className={styles.form} onSubmit={handleConfirm}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <fieldset className={styles.form__fieldset}>
           <Input onChange={handleChange} value={formData.title} name="title" />
           <Textarea
