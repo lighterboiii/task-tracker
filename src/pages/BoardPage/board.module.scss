@@ -6,4 +6,14 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+
+  &__button {
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+    border: none;
+    background: transparent;
+    padding: 16px;
+    color: #8b949e;
+  }
 }
