@@ -1,11 +1,12 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { configureStore } from '@reduxjs/toolkit';
-import boardReducer from './slices/boardSlice';
+import taskSlice from './slices/taskSlice';
 
 const store = configureStore({
   reducer: {
-    boardReducer,
+    taskSlice,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
 
 export default store;

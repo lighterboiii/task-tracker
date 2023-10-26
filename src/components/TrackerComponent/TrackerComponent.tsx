@@ -22,7 +22,7 @@ const TrackerComponent: FC<IProps> = ({ title, isModalOpen, toggleModal }) => {
       </button>
       {isModalOpen && (
         <Modal onClick={toggleModal}>
-          <AddTaskPopup />
+          <AddTaskPopup toggleModal={toggleModal} />
         </Modal>
       )}
     </div>

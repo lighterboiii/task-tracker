@@ -7,7 +7,9 @@ interface IInput {
   placeholder?: string;
   errorMessage?: string;
   value?: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
   disabled?: boolean;
   name?: string;
   minLength?: number;
@@ -26,7 +28,7 @@ const Input: FC<IInput> = ({
   onChange,
   disabled,
   name,
-  minLength = 2,
+  minLength = 1,
   maxLength,
   type = 'text',
   required,

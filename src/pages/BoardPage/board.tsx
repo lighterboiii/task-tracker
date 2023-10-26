@@ -67,7 +67,7 @@ const BoardPage: FC = () => {
       </Routes>
       {isModalOpen && (
         <Modal onClick={toggleModal}>
-          <AddTaskPopup />
+          <AddTaskPopup toggleModal={toggleModal} />
         </Modal>
       )}
       <Navigation />

@@ -1,22 +1,53 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from 'react';
+import { FC, FormEvent, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { newTask } from '../../services/slices/taskSlice';
+import { RootState } from '../../services/store';
 import Input from '../../ui/input/input';
 import styles from './AddTaskPopup.module.scss';
 import Textarea from '../../ui/textarea/textarea';
 
-const AddTaskPopup = () => {
-  const [nameInputValue, setNameValue] = useState('');
-  const [descriptionInputValue, setDescriptionValue] = useState('');
+interface IPopup {
+  toggleModal: () => void;
+}
 
+const AddTaskPopup: FC<IPopup> = ({ toggleModal }) => {
+  const dispatch = useDispatch();
+  const { title, description } = useSelector(
+    (store: RootState) => store.taskSlice
+  );
+  const [formData, setFormData] = useState({
+    title,
+    description,
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleConfirm = (e: FormEvent) => {
+    e.preventDefault();
+    dispatch(newTask(formData));
+    toggleModal();
+    setFormData({ title: '', description: '' });
+  };
+
+  console.log(formData);
   return (
     <div className={styles.popup}>
       <h2 className={styles.popup__heading}>Add Task</h2>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleConfirm}>
         <fieldset className={styles.form__fieldset}>
-          <Input onChange={() => setNameValue} />
-          <Textarea onChange={() => setNameValue} />
+          <Input onChange={handleChange} value={formData.title} name="title" />
+          <Textarea
+            onChange={handleChange}
+            value={formData.description}
+            name="description"
+          />
         </fieldset>
-        <button type="button" className={styles.form__button}>
+        <button type="submit" className={styles.form__button}>
           Confirm
         </button>
       </form>

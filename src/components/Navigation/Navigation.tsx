@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import Swipeable from 'react-swipeable';
 import styles from './Navigation.module.scss';
+import NavButton from '../../ui/buttons/nav-button/nav-button';
 
 function Navigation() {
   // const handleSwipe = (deltaX: number) => {
@@ -19,16 +20,16 @@ function Navigation() {
     // >
     <nav className={styles.nav}>
       <Link className={styles.nav__element} to="/boards/todo">
-        Todo
+        <NavButton text="Todo" />
       </Link>
       <Link className={styles.nav__element} to="/boards/progress">
-        In Progress
+        <NavButton text="In progress" />
       </Link>
       <Link className={styles.nav__element} to="/boards/review">
-        Review
+        <NavButton text="Review" />
       </Link>
       <Link className={styles.nav__element} to="/boards/done">
-        Done
+        <NavButton text="Done" />
       </Link>
     </nav>
     // </Swipeable>
