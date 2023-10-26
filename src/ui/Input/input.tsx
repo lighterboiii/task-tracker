@@ -1,6 +1,6 @@
 import { FC, ChangeEvent, useState, useEffect } from 'react';
 
-import stylesInput from './input.module.scss';
+import styles from './input.module.scss';
 
 interface IInput {
   isInvalid?: boolean;
@@ -19,7 +19,7 @@ interface IInput {
 }
 
 const Input: FC<IInput> = ({
-  placeholder = 'Введите ключ доступа',
+  placeholder = 'Enter task name...',
   isInvalid,
   errorMessage = 'Вы ввели неправильное значение',
   value,
@@ -88,9 +88,9 @@ const Input: FC<IInput> = ({
   };
 
   return (
-    <div className={stylesInput.wrapper}>
+    <div className={styles.input}>
       <input
-        className={`${error.error || isInvalid ? stylesInput.incorrect : ''} ${
+        className={`${error.error || isInvalid ? styles.incorrect : ''} ${
           error.error || isInvalid
         }`}
         type={typeValues || 'text'}
@@ -105,21 +105,21 @@ const Input: FC<IInput> = ({
         required={required}
       />
       {(error.error || isInvalid) && (
-        <p className={stylesInput.incorrect_text}>{error.textError}</p>
+        <p className={styles.incorrect_text}>{error.textError}</p>
       )}
-      <div className={`${disabled && stylesInput.disabled}`}>
+      <div className={`${disabled && styles.disabled}`}>
         {password && (
           <button
             type="button"
             aria-label="show/hide password"
             onClick={handleShowPassword}
-            className={`${showPassword && stylesInput.passwordShow}`}
+            className={`${showPassword && styles.passwordShow}`}
           />
         )}
         {required && (
           <span
-            className={`${stylesInput.required} ${
-              (error.error || isInvalid) && stylesInput.requiredIncorrect
+            className={`${styles.required} ${
+              (error.error || isInvalid) && styles.requiredIncorrect
             }`}
           >
             *

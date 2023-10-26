@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react';
 import ReactDom from 'react-dom';
 import ModalOverlay from '../ModalOverlay/ModalOverlay';
 import styles from './Modal.module.scss';
-import CloseIcon from '../../../ui/icons/CloseIcon/CloseIcon';
+import CloseIcon from '../../../ui/icons/closeIcon/closeIcon';
 
 interface IModalPopup {
   onClick: () => void;

@@ -10,3 +10,26 @@
     padding: 0 0 20px;
   }
 }
+
+.form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  &__fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__button {
+    background: transparent;
+    border: 1px #8b949e solid;
+    color: #8b949e;
+    border-radius: 40px;
+    padding: 12px 24px;
+  }
+}
