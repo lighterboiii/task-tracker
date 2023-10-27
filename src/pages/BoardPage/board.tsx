@@ -1,7 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
 import { FC, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import TrackerComponent from '../../components/TrackerComponent/TrackerComponent';
+import TaskBoard from '../../components/TaskBoard/TaskBoard';
 import Navigation from '../../components/Navigation/Navigation';
 import Modal from '../../components/Modal/Modal/Modal';
 import AddTaskPopup from '../../components/AddTaskPopup/AddTaskPopup';
@@ -27,40 +26,44 @@ const BoardPage: FC = () => {
         <Route
           path="/todo"
           element={
-            <TrackerComponent
+            <TaskBoard
               title="To Do"
               isModalOpen={isModalOpen}
               toggleModal={toggleModal}
+              board="todo"
             />
           }
         />
         <Route
           path="/progress"
           element={
-            <TrackerComponent
+            <TaskBoard
               title="In Progress"
               isModalOpen={isModalOpen}
               toggleModal={toggleModal}
+              board="inprogress"
             />
           }
         />
         <Route
           path="/review"
           element={
-            <TrackerComponent
+            <TaskBoard
               title="Review"
               isModalOpen={isModalOpen}
               toggleModal={toggleModal}
+              board="review"
             />
           }
         />
         <Route
           path="/done"
           element={
-            <TrackerComponent
+            <TaskBoard
               title="Done"
               isModalOpen={isModalOpen}
               toggleModal={toggleModal}
+              board="done"
             />
           }
         />

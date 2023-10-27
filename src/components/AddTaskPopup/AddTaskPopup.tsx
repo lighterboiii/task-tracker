@@ -17,6 +17,7 @@ const AddTaskPopup: FC<IPopup> = ({ toggleModal }) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
+    board: 'todo' as 'todo' | 'review' | 'done' | 'inprogress',
   });
 
   const handleChange = (
@@ -28,11 +29,10 @@ const AddTaskPopup: FC<IPopup> = ({ toggleModal }) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     dispatch(newTask(formData));
-    setFormData({ title: '', description: '' });
+    setFormData({ title: '', description: '', board: 'todo' });
     toggleModal();
   };
 
-  console.log(formData);
   return (
     <div className={styles.popup}>
       <h2 className={styles.popup__heading}>Add Task</h2>
