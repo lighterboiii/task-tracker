@@ -1,63 +1,35 @@
 // TaskBoard.tsx
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { moveTask } from '../../services/slices/taskSlice';
-import { RootState } from '../../services/store';
+import styles from './TaskElement.module.scss';
 
 interface ITaskElementProps {
-  board: 'todo' | 'review' | 'done' | 'inprogress';
+  task: any;
+  handleMoveTask: any;
 }
 
-const TaskElement: React.FC<ITaskElementProps> = ({ board }) => {
-  const dispatch = useDispatch();
-  const tasks = useSelector((state: RootState) =>
-    state.taskSlice.tasks.filter((task) => task.board === board)
-  );
-
-  const handleMoveTask = (
-    id: number | undefined,
-    newBoard: 'todo' | 'review' | 'done' | 'inprogress'
-  ) => {
-    dispatch(moveTask({ id, newBoard }));
-  };
-
-  console.log(tasks);
+const TaskElement: React.FC<ITaskElementProps> = ({ task, handleMoveTask }) => {
   return (
-    <div>
-      <h2>Task Element</h2>
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.id}>
-            <div>{task.title}</div>
-            <div>{task.description}</div>
-            <button
-              type="button"
-              onClick={() => handleMoveTask(task.id, 'todo')}
-            >
-              Move to Todo
-            </button>
-            <button
-              type="button"
-              onClick={() => handleMoveTask(task.id, 'review')}
-            >
-              Move to Review
-            </button>
-            <button
-              type="button"
-              onClick={() => handleMoveTask(task.id, 'done')}
-            >
-              Move to Done
-            </button>
-            <button
-              type="button"
-              onClick={() => handleMoveTask(task.id, 'inprogress')}
-            >
-              Move to In Progress
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <li key={task.id} className={styles.element}>
+      <div className={styles.element__textWrapper}>
+        <h3 className={styles.element__title}>{task.title}</h3>
+        <p className={styles.element__description}>{task.description}</p>
+      </div>
+      <button type="button" onClick={() => handleMoveTask(task.id, 'todo')}>
+        Move to Todo
+      </button>
+      <button type="button" onClick={() => handleMoveTask(task.id, 'review')}>
+        Move to Review
+      </button>
+      <button type="button" onClick={() => handleMoveTask(task.id, 'done')}>
+        Move to Done
+      </button>
+      <button
+        type="button"
+        onClick={() => handleMoveTask(task.id, 'inprogress')}
+      >
+        Move to In Progress
+      </button>
+    </li>
   );
 };
 

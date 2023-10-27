@@ -1,0 +1,36 @@
+.tasks {
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  position: relative;
+  max-height: 87vh;
+
+  &__list {
+    margin: 0 auto;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    overflow: scroll;
+    flex: 2;
+    list-style-type: none;
+    border-top: .5px #8b949e solid;
+    border-bottom: .5px #8b949e solid;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &__button {
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+    border: none;
+    background: transparent;
+    padding: 16px;
+    color: #8b949e;
+  }
+}
