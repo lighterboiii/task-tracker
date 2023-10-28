@@ -2,10 +2,13 @@
   margin: 0;
   flex: 1;
   display: grid;
-  gap: 8px;
   grid-template-columns: 1;
-  grid-template-rows: 2fr 2fr 2fr;
+  grid-template-rows: 1fr 2fr;
   padding: 16px 8px;
+
+  @media screen and (min-width: 600px) {
+    grid-template-rows: 1fr 1fr;
+  }
 
   &__element {
     box-sizing: border-box;
@@ -28,5 +31,16 @@
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    @media screen and (min-width: 600px) {
+      flex-direction: row;
+    }
   }
 }

@@ -14,21 +14,35 @@ const TaskElement: React.FC<ITaskElementProps> = ({ task, handleMoveTask }) => {
         <h3 className={styles.element__title}>{task.title}</h3>
         <p className={styles.element__description}>{task.description}</p>
       </div>
-      <button type="button" onClick={() => handleMoveTask(task.id, 'todo')}>
-        Move to Todo
-      </button>
-      <button type="button" onClick={() => handleMoveTask(task.id, 'review')}>
-        Move to Review
-      </button>
-      <button type="button" onClick={() => handleMoveTask(task.id, 'done')}>
-        Move to Done
-      </button>
-      <button
-        type="button"
-        onClick={() => handleMoveTask(task.id, 'inprogress')}
-      >
-        Move to In Progress
-      </button>
+      <div className={styles.element__button}>
+        <button
+          className={styles.element__button}
+          type="button"
+          onClick={() => handleMoveTask(task.id, 'todo')}
+        >
+          Todo
+        </button>
+        <button
+          type="button"
+          onClick={() => handleMoveTask(task.id, 'inprogress')}
+        >
+          Processing
+        </button>
+        <button
+          className={styles.element__button}
+          type="button"
+          onClick={() => handleMoveTask(task.id, 'review')}
+        >
+          Review
+        </button>
+        <button
+          className={styles.element__button}
+          type="button"
+          onClick={() => handleMoveTask(task.id, 'done')}
+        >
+          Done
+        </button>
+      </div>
     </li>
   );
 };

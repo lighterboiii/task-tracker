@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import TrackerComponent from '../TaskBoard/TaskBoard';
-import Navigation from '../Navigation/Navigation';
-import styles from './app.module.scss';
+import styles from './App.module.scss';
 import Header from '../Header/Header';
 import BoardPage from '../../pages/BoardPage/board';
 import HomePage from '../../pages/HomePage/home';

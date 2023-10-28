@@ -24,13 +24,30 @@
     box-sizing: border-box;
   }
 
+  &__title {
+    margin: 0;
+    flex: 1;
+  }
+
+  &__headContainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+
   &__button {
     position: absolute;
-    right: 0;
-    bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
     border: none;
     background: transparent;
-    padding: 16px;
-    color: #8b949e;
   }
 }

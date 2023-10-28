@@ -1,5 +1,5 @@
-import { FC, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { FC, useEffect, useState } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import TaskBoard from '../../components/TaskBoard/TaskBoard';
 import Navigation from '../../components/Navigation/Navigation';
 import Modal from '../../components/Modal/Modal/Modal';
@@ -7,11 +7,16 @@ import AddTaskPopup from '../../components/AddTaskPopup/AddTaskPopup';
 import styles from './board.module.scss';
 
 const BoardPage: FC = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setModalOpen] = useState(false);
 
   const toggleModal = () => {
     setModalOpen(!isModalOpen);
   };
+
+  useEffect(() => {
+    navigate('/boards/todo');
+  }, []);
 
   return (
     <div className={styles.board}>
