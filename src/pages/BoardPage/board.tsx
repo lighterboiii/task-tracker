@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC, useEffect, useState } from 'react';
 import { Route, Routes, useMatch, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';

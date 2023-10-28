@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC, useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { RootState } from '../../services/store';
-import { moveTask } from '../../services/slices/taskSlice';
 
 interface ITaskPage {
   handleMoveTask: any;
@@ -15,9 +13,6 @@ const InternalTaskPage: FC<ITaskPage> = ({ handleMoveTask }) => {
   const selectedTask = useMemo(() => {
     return tasksList.find((task) => task.id === id);
   }, [tasksList, id]);
-
-  console.log(tasksList);
-  console.log(selectedTask);
   return (
     <div className="taskPage">
       <h2>{selectedTask!.title}</h2>

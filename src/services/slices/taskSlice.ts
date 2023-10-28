@@ -1,5 +1,3 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface ITask {
@@ -22,6 +20,7 @@ const taskSlice = createSlice({
   initialState,
   reducers: {
     newTask: (state, action: PayloadAction<ITask>) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const newTask: ITask = {
         id: action.payload.id,
         title: action.payload.title,

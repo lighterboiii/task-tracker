@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ChangeEvent } from 'react';
-import styles from './Textarea.module.scss';
 
 interface IInputMessage {
   placeholder?: string;
