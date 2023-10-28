@@ -1,18 +1,29 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC, useEffect, useState } from 'react';
 import { Route, Routes, useMatch, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import TaskBoard from '../../components/TaskBoard/TaskBoard';
 import Navigation from '../../components/Navigation/Navigation';
 import Modal from '../../components/Modal/Modal/Modal';
 import AddTaskPopup from '../../components/AddTaskPopup/AddTaskPopup';
 import styles from './board.module.scss';
 import InternalTaskPage from '../InternalTaskPage/InternalTaskPage';
+import { moveTask } from '../../services/slices/taskSlice';
 
 const BoardPage: FC = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isModalOpen, setModalOpen] = useState(false);
 
   const toggleModal = () => {
     setModalOpen(!isModalOpen);
+  };
+
+  const handleMoveTask = (
+    id: string,
+    newBoard: 'todo' | 'review' | 'done' | 'inprogress'
+  ) => {
+    dispatch(moveTask({ id, newBoard }));
   };
 
   useEffect(() => {
@@ -77,7 +88,10 @@ const BoardPage: FC = () => {
             />
           }
         />
-        <Route path="/:id" element={<InternalTaskPage />} />
+        <Route
+          path="/:id"
+          element={<InternalTaskPage handleMoveTask={handleMoveTask} />}
+        />
       </Routes>
       {isModalOpen && (
         <Modal onClick={toggleModal}>
