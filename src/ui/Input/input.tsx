@@ -93,7 +93,7 @@ const Input: FC<IInput> = ({
     <div className={styles.input}>
       <input
         className={`${error.error || isInvalid ? styles.incorrect : ''} ${
-          error.error || isInvalid
+          styles.inputMain
         }`}
         type={typeValues || 'text'}
         placeholder={placeholder}

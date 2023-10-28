@@ -1,0 +1,25 @@
+.textarea {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+
+    &:focus {
+      outline: none;
+      border-color: rgb(16, 147, 16);
+    }
+
+    &::placeholder {
+      color: #8b949e;
+    }
+  }
+}

@@ -8,6 +8,7 @@
   width: 100%;
   border-bottom: .5px #8b949e solid;
   box-sizing: border-box;
+  background: transparent;
 
   &__title {
     margin: 0 auto;
@@ -39,7 +40,10 @@
     border: none;
     background: transparent;
     font-size: 20px;
-    color: #8b949e;
   }
 
+  &__link {
+    text-decoration: none;
+    color: #8b949e;
+  }
 }

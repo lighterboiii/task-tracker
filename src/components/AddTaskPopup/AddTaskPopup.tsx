@@ -36,12 +36,20 @@ const AddTaskPopup: FC<IPopup> = ({ toggleModal }) => {
       <h2 className={styles.popup__heading}>Add Task</h2>
       <form className={styles.form} onSubmit={handleSubmit}>
         <fieldset className={styles.form__fieldset}>
-          <Input onChange={handleChange} value={formData.title} name="title" />
-          <Textarea
-            onChange={handleChange}
-            value={formData.description}
-            name="description"
-          />
+          <div className={styles.form__input}>
+            <Input
+              onChange={handleChange}
+              value={formData.title}
+              name="title"
+            />
+          </div>
+          <div className={styles.form__input}>
+            <Textarea
+              onChange={handleChange}
+              value={formData.description}
+              name="description"
+            />
+          </div>
         </fieldset>
         <button type="submit" className={styles.form__button}>
           Confirm

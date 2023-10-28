@@ -2,12 +2,13 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
 
   &__heading {
     margin: 0;
     color: #FFF;
-    padding: 0 0 20px;
+    padding: 0 0 10px 5px;
   }
 }
 
@@ -18,18 +19,40 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
+  background-color: rgba(0, 0, 0, .3);
+  padding: 20px;
+  border: .5px #FFF solid;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  box-sizing: border-box;
 
   &__fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    width: 260px;
   }
 
   &__button {
     background: transparent;
-    border: 1px #8b949e solid;
-    color: #8b949e;
+    border: .5px #FFF solid;
+    color: #FFF;
     border-radius: 40px;
     padding: 12px 24px;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

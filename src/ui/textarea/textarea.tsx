@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ChangeEvent } from 'react';
+import styles from './textarea.module.scss';
 
 interface IInputMessage {
   placeholder?: string;
@@ -10,13 +11,14 @@ interface IInputMessage {
 
 const Textarea: FC<IInputMessage> = ({
   value,
-  placeholder = 'Enter description...',
+  placeholder = 'Short description...',
   onChange,
   name,
 }) => {
   return (
-    <div>
+    <div className={styles.textarea}>
       <textarea
+        className={styles.textarea__input}
         placeholder={placeholder}
         value={value}
         onChange={onChange}

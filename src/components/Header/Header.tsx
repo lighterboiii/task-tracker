@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Header.module.scss';
 import ChevronIcon from '../../ui/icons/chevron-icon/chevron-icon';
 
@@ -18,10 +19,11 @@ const Header: FC = () => {
       >
         <ChevronIcon position="left" />
       </button>
-      {/* <h1 className={styles.header__title}>Discrete Tracker</h1> */}
-      <button type="button" className={styles.header__mainButton}>
-        Создать доску
-      </button>
+      {/* <button type="button" className={styles.header__mainButton}>
+        <Link to="/create" className={styles.header__link}>
+          + board
+        </Link>
+      </button> */}
     </div>
   );
 };
