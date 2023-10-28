@@ -1,6 +1,5 @@
 {
   "name": "task-tracker",
-  "homepage": "https://lighterboiii.github.io/task-tracker/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
