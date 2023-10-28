@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC, FormEvent, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { v4 as uuid } from 'uuid';
 import { newTask } from '../../services/slices/taskSlice';
-import { RootState } from '../../services/store';
 import Input from '../../ui/input/input';
 import styles from './AddTaskPopup.module.scss';
 import Textarea from '../../ui/textarea/textarea';
@@ -13,8 +13,8 @@ interface IPopup {
 
 const AddTaskPopup: FC<IPopup> = ({ toggleModal }) => {
   const dispatch = useDispatch();
-  const tasks = useSelector((store: RootState) => store.taskSlice.tasks);
   const [formData, setFormData] = useState({
+    id: uuid(),
     title: '',
     description: '',
     board: 'todo' as 'todo' | 'review' | 'done' | 'inprogress',
@@ -29,7 +29,6 @@ const AddTaskPopup: FC<IPopup> = ({ toggleModal }) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     dispatch(newTask(formData));
-    setFormData({ title: '', description: '', board: 'todo' });
     toggleModal();
   };
 

@@ -33,7 +33,7 @@ const ChevronIcon: FC<IChevronIcon> = ({
     {/* <polygon points="0,0 30,0 15,20" transform={position || 'rotate(90)'} /> */}
     <path
       d="M12.6667 6.28027L8.00001 10.9469L3.33334 6.28027"
-      stroke={color || '#FFF'}
+      stroke={color || '#8b949e'}
       strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"

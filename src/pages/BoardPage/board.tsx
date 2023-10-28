@@ -1,10 +1,11 @@
 import { FC, useEffect, useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useMatch, useNavigate } from 'react-router-dom';
 import TaskBoard from '../../components/TaskBoard/TaskBoard';
 import Navigation from '../../components/Navigation/Navigation';
 import Modal from '../../components/Modal/Modal/Modal';
 import AddTaskPopup from '../../components/AddTaskPopup/AddTaskPopup';
 import styles from './board.module.scss';
+import InternalTaskPage from '../InternalTaskPage/InternalTaskPage';
 
 const BoardPage: FC = () => {
   const navigate = useNavigate();
@@ -18,18 +19,22 @@ const BoardPage: FC = () => {
     navigate('/boards/todo');
   }, []);
 
+  const matchTask = useMatch('/boards/task/*');
+
   return (
     <div className={styles.board}>
-      <button
-        type="button"
-        className={styles.board__button}
-        onClick={() => setModalOpen(true)}
-      >
-        + Add item
-      </button>
+      {!matchTask && (
+        <button
+          type="button"
+          className={styles.board__button}
+          onClick={() => setModalOpen(true)}
+        >
+          + Add item
+        </button>
+      )}
       <Routes>
         <Route
-          path="/todo"
+          path="/todo/*"
           element={
             <TaskBoard
               title="To Do"
@@ -40,7 +45,7 @@ const BoardPage: FC = () => {
           }
         />
         <Route
-          path="/progress"
+          path="/progress/*"
           element={
             <TaskBoard
               title="In Progress"
@@ -51,7 +56,7 @@ const BoardPage: FC = () => {
           }
         />
         <Route
-          path="/review"
+          path="/review/*"
           element={
             <TaskBoard
               title="Review"
@@ -62,7 +67,7 @@ const BoardPage: FC = () => {
           }
         />
         <Route
-          path="/done"
+          path="/done/*"
           element={
             <TaskBoard
               title="Done"
@@ -72,6 +77,7 @@ const BoardPage: FC = () => {
             />
           }
         />
+        <Route path="/:id" element={<InternalTaskPage />} />
       </Routes>
       {isModalOpen && (
         <Modal onClick={toggleModal}>

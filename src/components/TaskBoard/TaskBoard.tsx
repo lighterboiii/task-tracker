@@ -24,14 +24,14 @@ const TaskBoard: FC<IProps> = ({ title, isModalOpen, toggleModal, board }) => {
   );
 
   const handleMoveTask = (
-    id: number | undefined,
+    id: string,
     newBoard: 'todo' | 'review' | 'done' | 'inprogress'
   ) => {
     dispatch(moveTask({ id, newBoard }));
   };
 
   const handleBack = () => {
-    navigate('/');
+    navigate(-1);
   };
 
   return (
@@ -48,7 +48,11 @@ const TaskBoard: FC<IProps> = ({ title, isModalOpen, toggleModal, board }) => {
       </div>
       <ul className={styles.tasks__list}>
         {taskList.map((task) => (
-          <TaskElement task={task} handleMoveTask={handleMoveTask} />
+          <TaskElement
+            key={task.id}
+            task={task}
+            handleMoveTask={handleMoveTask}
+          />
         ))}
       </ul>
       {isModalOpen && (

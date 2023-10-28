@@ -5,9 +5,6 @@
   border-radius: 20px;
   width: 100%;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 
   &__title {
     margin: 0 auto;
@@ -15,5 +12,19 @@
 
   &__description {
     margin: 0 auto;
+  }
+
+  &__link {
+    color: #FFF;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__textWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 }

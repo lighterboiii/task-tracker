@@ -3,7 +3,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface ITask {
-  id?: number | undefined;
+  id: string;
   title: string;
   description: string;
   board: 'todo' | 'review' | 'done' | 'inprogress';
@@ -17,15 +17,13 @@ const initialState: ITaskState = {
   tasks: [],
 };
 
-let nextTaskId = 1;
-
 const taskSlice = createSlice({
   name: 'task',
   initialState,
   reducers: {
     newTask: (state, action: PayloadAction<ITask>) => {
       const newTask: ITask = {
-        id: nextTaskId++,
+        id: action.payload.id,
         title: action.payload.title,
         description: action.payload.description,
         board: 'todo',
@@ -38,12 +36,14 @@ const taskSlice = createSlice({
     moveTask: (
       state,
       action: PayloadAction<{
-        id: number | undefined;
+        id: string;
         newBoard: 'todo' | 'review' | 'done' | 'inprogress';
       }>
     ) => {
       const { id, newBoard } = action.payload;
-      const taskIndex = state.tasks.findIndex((t) => t.id === id);
+      const taskIndex = state.tasks.findIndex(
+        (t) => t.id !== undefined && t.id === id
+      );
       if (taskIndex !== -1) {
         state.tasks[taskIndex].board = newBoard;
       }
