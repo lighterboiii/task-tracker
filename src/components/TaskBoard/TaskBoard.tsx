@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -26,18 +27,18 @@ const TaskBoard: FC<IProps> = ({ title, isModalOpen, toggleModal, board }) => {
   };
 
   return (
-    <div className={styles.tasks}>
-      <div className={styles.tasks__headContainer}>
-        <button
+    <div className={styles.tasksBoard}>
+      <div className={styles.tasksBoard__headContainer}>
+        {/* <button
           type="button"
-          className={styles.tasks__button}
+          className={styles.tasksBoard__button}
           onClick={handleBack}
         >
           <ChevronIcon position="left" />
-        </button>
-        <h2 className={styles.tasks__title}>{title}</h2>
+        </button> */}
+        <h2 className={styles.tasksBoard__title}>{title}</h2>
       </div>
-      <ul className={styles.tasks__list}>
+      <ul className={styles.tasksBoard__list}>
         {taskList.map((task) => (
           <TaskElement key={task.id} task={task} />
         ))}
